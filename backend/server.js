@@ -100,7 +100,7 @@ app.post('/api/resume/analyze', upload.single('resumePdf'), async (req, res) => 
         console.log(` Extracted Text. Hitting Google API directly for: ${targetRole}...`);
 
         // 2.  DIRECT FETCH REQUEST (NO SDK REQUIRED) 
-        const apiKey = process.env.GEMINI_API_KEY || "AIzaSyBIKFuLtYaykIy0JQptXN-6nD8ffsOX0CM"; 
+        const apiKey = process.env.GEMINI_API_KEY ; 
 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
 
