@@ -1,0 +1,267 @@
+/* Private Sector Variables */
+:root {
+  --dark-bg: #020617;
+  --neon-blue: #38bdf8;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(56, 189, 248, 0.2);
+}
+
+.p-container {
+  background-color: var(--dark-bg);
+  min-height: 100vh;
+  color: #fff;
+  padding: 120px 5% 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Animation */
+.p-bg-blob {
+  position: absolute;
+  top: -10%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Initial State for Animations */
+.p-content, .p-hero-visual, .p-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Staggered Entrance Logic */
+.p-active .p-content { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.p-active .p-hero-visual { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+.p-active .p-card { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+
+/* Hero Styling */
+.p-hero {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+
+.p-title { font-size: 4rem; line-height: 1.1; font-weight: 800; margin: 20px 0; }
+.p-title span { color: var(--neon-blue); text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+
+.p-badge { 
+  color: var(--neon-blue); font-family: monospace; font-size: 0.8rem; 
+  letter-spacing: 2px; display: flex; align-items: center; gap: 8px;
+}
+
+.p-pulse {
+  width: 8px; height: 8px; background: var(--neon-blue); border-radius: 50%;
+  animation: p-pulse-anim 2s infinite;
+}
+
+@keyframes p-pulse-anim {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Visual Stats */
+.p-stat-box {
+  background: var(--glass); border: 1px solid var(--border);
+  backdrop-filter: blur(10px); padding: 25px; border-radius: 20px;
+  display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+}
+
+/* Feature Cards */
+.p-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+  max-width: 1200px; margin: 80px auto 0;
+}
+
+.p-card {
+  background: var(--glass); border: 1px solid rgba(255,255,255,0.05);
+  padding: 40px; border-radius: 24px; transition: 0.4s;
+}
+
+.p-card:hover { border-color: var(--neon-blue); background: rgba(56, 189, 248, 0.03); transform: translateY(-5px); }
+.p-highlight { border-color: var(--border); background: rgba(56, 189, 248, 0.02); }
+
+/* Buttons */
+.p-btn-group { display: flex; gap: 20px; margin-top: 40px; }
+.p-btn-main { 
+  background: var(--neon-blue); color: #020617; border: none;
+  padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; gap: 10px; transition: 0.3s;
+}
+.p-btn-main:hover { box-shadow: 0 0 20px var(--neon-blue); transform: scale(1.05); }
+
+.p-btn-sub {
+  background: transparent; color: #fff; border: 1px solid var(--border);
+  padding: 16px 30px; border-radius: 12px; font-weight: 700; cursor: pointer;
+}
+
+/* =========================================
+   ULTRA-MODERN COLLAB LAB THEME
+========================================= */
+:root {
+  --bg-deep: #09090b;      /* Zinc 950 */
+  --bg-panel: #18181b;     /* Zinc 900 */
+  --accent: #6366f1;       /* Indigo/Violet */
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --danger: #ef4444;
+  --text-main: #f8fafc;
+  --text-code: #34d399;    /* Matrix Green */
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+.lab-container {
+  padding-top: 70px; /* Navbar fix */
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Header Redesign --- */
+.lab-header {
+  height: 65px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.lab-logo { display: flex; align-items: center; gap: 12px; }
+.lab-logo h2 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; margin: 0; }
+.lab-logo span { color: var(--accent); }
+.pro-tag { 
+  font-size: 0.65rem; 
+  background: linear-gradient(135deg, var(--accent), #a855f7); 
+  color: white; 
+  padding: 3px 8px; 
+  border-radius: 6px; 
+  font-weight: 800;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.lab-actions { display: flex; align-items: center; gap: 15px; }
+.room-badge { 
+  font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #34d399; 
+  background: rgba(16, 185, 129, 0.1); padding: 6px 14px; 
+  border-radius: 20px; border: 1px solid rgba(16,185,129,0.3); 
+}
+
+.run-btn { 
+  background: var(--text-main); color: #000; border: none; 
+  padding: 8px 20px; border-radius: 8px; font-weight: 700; 
+  cursor: pointer; display: flex; align-items: center; gap: 8px; 
+  transition: all 0.3s ease;
+}
+.run-btn:hover { 
+  background: var(--accent); color: white;
+  box-shadow: 0 0 20px var(--accent-glow); 
+  transform: translateY(-2px);
+}
+
+/* --- Workspace Layout --- */
+.lab-workspace { display: flex; height: calc(100vh - 135px); }
+
+/* --- Video Sidebar (Glassmorphism & Resize) --- */
+.video-sidebar {
+  width: 320px;
+  min-width: 250px;
+  max-width: 45%;
+  resize: horizontal;
+  overflow: hidden;
+  background: var(--bg-deep);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.video-sidebar::-webkit-scrollbar { display: none; }
+
+/* --- Video Cards --- */
+.video-card {
+  position: relative; 
+  width: 100%; 
+  height: 180px; 
+  background: #1e1e24; 
+  border-radius: 16px; 
+  overflow: hidden; 
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+.video-card:hover { transform: scale(1.02); border-color: var(--accent); }
+
+.cam-view { width: 100%; height: 100%; object-fit: cover; }
+
+.video-overlay {
+  position: absolute; bottom: 12px; left: 12px;
+  background: rgba(0,0,0,0.6); padding: 5px 12px; border-radius: 8px;
+  backdrop-filter: blur(10px); font-size: 0.8rem; font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.15); color: white;
+}
+
+/* --- Floating Meeting Controls (The Cool Part) --- */
+.meeting-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; 
+  gap: 15px; 
+  background: rgba(24, 24, 27, 0.75); 
+  backdrop-filter: blur(16px); /* Glass Effect */
+  padding: 12px 20px; 
+  border-radius: 20px; 
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+.ctrl-btn {
+  width: 48px; height: 48px; border-radius: 14px; border: none;
+  background: rgba(255,255,255,0.1); color: white; 
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.ctrl-btn:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px);}
+.ctrl-btn.danger { background: rgba(239, 68, 68, 0.15); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); }
+.ctrl-btn.danger:hover { background: rgba(239, 68, 68, 0.25); }
+
+.end-call { background: var(--danger); color: white; }
+.end-call:hover { background: #dc2626; box-shadow: 0 0 20px rgba(239,68,68,0.5); }
+
+/* --- Editor & Terminal Area --- */
+.lab-main-area { flex: 1; display: flex; flex-direction: column; background: var(--bg-deep); }
+
+.editor-tab { 
+  padding: 12px 25px; background: var(--bg-panel); 
+  border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; 
+  font-size: 0.9rem; font-family: 'Fira Code', monospace; color: var(--text-main); 
+  width: fit-content; border-right: 1px solid var(--border); 
+  border-radius: 0 12px 0 0; margin-top: 10px;
+}
+
+.code-editor { 
+  flex: 2; width: 100%; background: transparent; border: none; 
+  color: var(--text-code); font-family: 'Fira Code', monospace; 
+  font-size: 1.1rem; line-height: 1.6; padding: 25px; resize: none; outline: none; 
+}
+
+.output-terminal {
+  flex: 1; background: #000; border-top: 1px solid var(--border);
+  padding: 20px; font-family: 'Fira Code', monospace;
+  box-shadow: inset 0 5px 20px rgba(0,0,0,0.5);
+}
+.terminal-header { color: #71717a; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;}
+.terminal-output { color: #a1a1aa; font-size: 0.95rem; white-space: pre-wrap; line-height: 1.5;}

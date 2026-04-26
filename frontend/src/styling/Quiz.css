@@ -1,0 +1,345 @@
+/* =========================================
+   1. GLOBAL LAYOUT (Navbar Fix)
+========================================= */
+.quiz-container {
+  /* 🟢 Top padding 130px kar di hai taaki Navbar se bilkul na take */
+  padding: 130px 20px 60px; 
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f8fafc;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.quiz-header h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+  font-weight: 800;
+}
+
+.quiz-header span {
+  color: #6366f1; /* Primary Blue/Indigo */
+}
+
+.quiz-header p {
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+/* =========================================
+   2. GLASSMORPHISM
+========================================= */
+.glass-morphism {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+}
+
+/* =========================================
+   3. SUBJECT GRID (Row Grid with Auto-Flow Down)
+========================================= */
+.subject-grid {
+  display: grid;
+  /* 🟢 Magic Line: Boxes row mein rahenge aur jagah bharne par niche wali line mein flow ho jayenge */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.subject-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: left;
+}
+
+/* 🟢 Hover Animations (Upar uthega aur thoda bada hoga) */
+.subject-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 🟢 Premium Shine Effect */
+.subject-card::before {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: -100%;
+  width: 50%; 
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: skewX(-25deg);
+  transition: all 0.6s ease;
+}
+
+.subject-card:hover::before {
+  left: 150%;
+}
+
+.sub-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.subject-card:hover .sub-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.subject-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.subject-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.sub-footer {
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 15px;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+}
+
+.subject-card:hover .sub-footer {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   4. ACTIVE QUIZ AREA
+========================================= */
+.active-quiz-area {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(-5px);
+}
+
+.quiz-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.quiz-meta h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.quiz-meta span {
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.quiz-box {
+  padding: 50px;
+}
+
+/* =========================================
+   5. TIMER & PROGRESS
+========================================= */
+.timer-header {
+  font-size: 1.1rem;
+}
+
+.progress-indicator {
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.timer-bar-bg {
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.question-text {
+  font-size: 1.4rem;
+  margin-bottom: 35px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* =========================================
+   6. OPTIONS BUTTONS
+========================================= */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.option-btn {
+  padding: 20px 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.option-btn:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: #6366f1;
+  transform: scale(1.02);
+}
+
+.option-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+/* Answer Feedbacks */
+.option-btn.correct {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+  transform: scale(1.02);
+}
+
+.option-btn.wrong {
+  background: rgba(244, 63, 94, 0.15) !important;
+  border-color: #f43f5e !important;
+  color: #f43f5e !important;
+}
+
+/* =========================================
+   7. LOADER & RESULT
+========================================= */
+.quiz-loader {
+  padding: 80px 0;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.quiz-loader p {
+  margin-top: 25px;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.result-section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.result-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.result-section p {
+  color: #94a3b8;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 16px 40px;
+  border-radius: 14px;
+  background: #6366f1;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+
+.cta-button:hover {
+  background: #4f46e5;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+}
+
+/* =========================================
+   8. RESPONSIVE DESIGN (Mobile)
+========================================= */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 100px 15px 40px; /* Thoda kam padding mobile ke liye */
+  }
+
+  .quiz-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .subject-grid {
+    grid-template-columns: 1fr; /* Mobile par single column */
+  }
+  
+  .quiz-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .quiz-box {
+    padding: 30px 20px;
+  }
+  
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-section h1 {
+    font-size: 4rem !important;
+  }
+}
